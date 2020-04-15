@@ -14,7 +14,14 @@ Generate SDK:
   artifacts:
     paths:
       - .openapi-generator/
-      - index.html
+      - bin/
+      - docs/
+      - lib/
+      - t/
+      - .gitignore
+      - .travis.yml
+      - README.md
+      - git_push.sh
 
 Commit SDK:
   image: docker:git
