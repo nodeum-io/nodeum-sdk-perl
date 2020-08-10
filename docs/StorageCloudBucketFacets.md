@@ -8,7 +8,7 @@ use Nodeum::SDK::Object::StorageCloudBucketFacets;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
+**count** | **int** |  | [optional] [readonly] 
 **cloud_connector_type_i** | [**ByTypeFacetBuckets**](ByTypeFacetBuckets.md) |  | [optional] 
 **pool_type_i** | [**ByTypeFacetBuckets**](ByTypeFacetBuckets.md) |  | [optional] 
 

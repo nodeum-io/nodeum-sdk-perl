@@ -8,10 +8,10 @@ use Nodeum::SDK::Object::ByPrimaryStorageFacet;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
-**files_count** | **int** |  | [optional] 
-**file_size_sum** | **int** |  | [optional] 
-**cost** | **double** |  | [optional] 
+**count** | **int** |  | [optional] [readonly] 
+**files_count** | **int** |  | [optional] [readonly] 
+**file_size_sum** | **int** |  | [optional] [readonly] 
+**cost** | **double** |  | [optional] [readonly] 
 **on_primary_container** | [**ByPrimaryTypeFacet**](ByPrimaryTypeFacet.md) |  | [optional] 
 **on_primary_nas** | [**ByPrimaryTypeFacet**](ByPrimaryTypeFacet.md) |  | [optional] 
 **on_primary_public_cloud** | [**ByPrimaryTypeFacet**](ByPrimaryTypeFacet.md) |  | [optional] 

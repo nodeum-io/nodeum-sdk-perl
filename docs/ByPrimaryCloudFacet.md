@@ -8,10 +8,10 @@ use Nodeum::SDK::Object::ByPrimaryCloudFacet;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
-**files_count** | **int** |  | [optional] 
-**file_size_sum** | **int** |  | [optional] 
-**cost** | **double** |  | [optional] 
+**count** | **int** |  | [optional] [readonly] 
+**files_count** | **int** |  | [optional] [readonly] 
+**file_size_sum** | **int** |  | [optional] [readonly] 
+**cost** | **double** |  | [optional] [readonly] 
 **prim_cloud_connector_name_s** | [**ByDateFacetBuckets**](ByDateFacetBuckets.md) |  | [optional] 
 **prim_cloud_bucket_name_s** | [**ByDateFacetBuckets**](ByDateFacetBuckets.md) |  | [optional] 
 **prim_pool_name_s** | [**ByDateFacetBuckets**](ByDateFacetBuckets.md) |  | [optional] 

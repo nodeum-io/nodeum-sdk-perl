@@ -9,7 +9,7 @@ use Nodeum::SDK::Object::ByTypeFacetBucket;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **val** | [**object**](.md) |  | [optional] 
-**count** | **int** |  | [optional] 
+**count** | **int** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

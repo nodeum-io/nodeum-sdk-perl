@@ -339,6 +339,110 @@ sub statistics_by_group_owner {
 }
 
 #
+# statistics_by_metadata
+#
+# Get statistics about files, grouped by metadata
+# 
+# @param string $q Solr query (optional)
+# @param ARRAY[string] $fq Solr filter query  Multiple query can be separated by &#x60;|&#x60;. (optional)
+# @param string $date_attr Type of date to facet on (optional)
+# @param string $sort Sort results of facet (optional, default to 'count')
+# @param int $limit Limit results of facet (optional, default to 10)
+{
+    my $params = {
+    'q' => {
+        data_type => 'string',
+        description => 'Solr query',
+        required => '0',
+    },
+    'fq' => {
+        data_type => 'ARRAY[string]',
+        description => 'Solr filter query  Multiple query can be separated by &#x60;|&#x60;.',
+        required => '0',
+    },
+    'date_attr' => {
+        data_type => 'string',
+        description => 'Type of date to facet on',
+        required => '0',
+    },
+    'sort' => {
+        data_type => 'string',
+        description => 'Sort results of facet',
+        required => '0',
+    },
+    'limit' => {
+        data_type => 'int',
+        description => 'Limit results of facet',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'statistics_by_metadata' } = { 
+        summary => 'Get statistics about files, grouped by metadata',
+        params => $params,
+        returns => 'ByMetadataFacet',
+        };
+}
+# @return ByMetadataFacet
+#
+sub statistics_by_metadata {
+    my ($self, %args) = @_;
+
+    # parse inputs
+    my $_resource_path = '/statistics/by_metadata';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'q'}) {
+        $query_params->{'q'} = $self->{api_client}->to_query_value($args{'q'});
+    }
+
+    # query params
+    if ( exists $args{'fq'}) {
+        $query_params->{'fq'} = $self->{api_client}->to_query_value($args{'fq'});
+    }
+
+    # query params
+    if ( exists $args{'date_attr'}) {
+        $query_params->{'date_attr'} = $self->{api_client}->to_query_value($args{'date_attr'});
+    }
+
+    # query params
+    if ( exists $args{'sort'}) {
+        $query_params->{'sort'} = $self->{api_client}->to_query_value($args{'sort'});
+    }
+
+    # query params
+    if ( exists $args{'limit'}) {
+        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(BasicAuth BearerAuth )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('ByMetadataFacet', $response);
+    return $_response_object;
+}
+
+#
 # statistics_by_primary_cloud
 #
 # Get statistics about files, grouped by primary Cloud
@@ -1424,6 +1528,99 @@ sub statistics_storage {
         return;
     }
     my $_response_object = $self->{api_client}->deserialize('StorageFacet', $response);
+    return $_response_object;
+}
+
+#
+# statistics_task_by_metadata
+#
+# Get statistics about tasks executions, grouped by metadata
+# 
+# @param string $q Solr query (optional)
+# @param ARRAY[string] $fq Solr filter query  Multiple query can be separated by &#x60;|&#x60;. (optional)
+# @param string $sort Sort results of facet on task (optional, default to 'count')
+# @param int $limit Limit results of facet (optional, default to 10)
+{
+    my $params = {
+    'q' => {
+        data_type => 'string',
+        description => 'Solr query',
+        required => '0',
+    },
+    'fq' => {
+        data_type => 'ARRAY[string]',
+        description => 'Solr filter query  Multiple query can be separated by &#x60;|&#x60;.',
+        required => '0',
+    },
+    'sort' => {
+        data_type => 'string',
+        description => 'Sort results of facet on task',
+        required => '0',
+    },
+    'limit' => {
+        data_type => 'int',
+        description => 'Limit results of facet',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'statistics_task_by_metadata' } = { 
+        summary => 'Get statistics about tasks executions, grouped by metadata',
+        params => $params,
+        returns => 'ByTaskMetadataFacet',
+        };
+}
+# @return ByTaskMetadataFacet
+#
+sub statistics_task_by_metadata {
+    my ($self, %args) = @_;
+
+    # parse inputs
+    my $_resource_path = '/statistics/task_by_metadata';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # query params
+    if ( exists $args{'q'}) {
+        $query_params->{'q'} = $self->{api_client}->to_query_value($args{'q'});
+    }
+
+    # query params
+    if ( exists $args{'fq'}) {
+        $query_params->{'fq'} = $self->{api_client}->to_query_value($args{'fq'});
+    }
+
+    # query params
+    if ( exists $args{'sort'}) {
+        $query_params->{'sort'} = $self->{api_client}->to_query_value($args{'sort'});
+    }
+
+    # query params
+    if ( exists $args{'limit'}) {
+        $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(BasicAuth BearerAuth )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('ByTaskMetadataFacet', $response);
     return $_response_object;
 }
 

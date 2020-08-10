@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **region** | **string** |  | [optional] 
 **access_key** | **string** |  | [optional] 
 **secret_key** | **string** |  | [optional] 
+**options** | **string** | S3FS mounting options, separated by comma | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

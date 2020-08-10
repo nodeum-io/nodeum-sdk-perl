@@ -8,10 +8,10 @@ use Nodeum::SDK::Object::ByDateFacet;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
-**files_count** | **int** |  | [optional] 
-**file_size_sum** | **int** |  | [optional] 
-**cost** | **double** |  | [optional] 
+**count** | **int** |  | [optional] [readonly] 
+**files_count** | **int** |  | [optional] [readonly] 
+**file_size_sum** | **int** |  | [optional] [readonly] 
+**cost** | **double** |  | [optional] [readonly] 
 **in_cache** | [**FileFacet**](FileFacet.md) |  | [optional] 
 **less_1_week** | [**FileFacet**](FileFacet.md) |  | [optional] 
 **less_1_month** | [**FileFacet**](FileFacet.md) |  | [optional] 

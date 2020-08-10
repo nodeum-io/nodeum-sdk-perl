@@ -219,6 +219,20 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'bandwidth_count' => {
+        datatype => 'int',
+        base_name => 'bandwidth_count',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'tasks_count' => {
+        datatype => 'int',
+        base_name => 'tasks_count',
+        description => '',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -229,7 +243,9 @@ __PACKAGE__->openapi_types( {
     'to_process_files_sum' => 'int',
     'processed_files_sum' => 'int',
     'finalized_files_sum' => 'int',
-    'bandwidth_avg' => 'int'
+    'bandwidth_avg' => 'int',
+    'bandwidth_count' => 'int',
+    'tasks_count' => 'int'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -240,7 +256,9 @@ __PACKAGE__->attribute_map( {
     'to_process_files_sum' => 'to_process_files_sum',
     'processed_files_sum' => 'processed_files_sum',
     'finalized_files_sum' => 'finalized_files_sum',
-    'bandwidth_avg' => 'bandwidth_avg'
+    'bandwidth_avg' => 'bandwidth_avg',
+    'bandwidth_count' => 'bandwidth_count',
+    'tasks_count' => 'tasks_count'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

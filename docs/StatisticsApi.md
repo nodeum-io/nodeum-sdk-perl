@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**statistics_by_date**](StatisticsApi.md#statistics_by_date) | **GET** /statistics/by_date | Get statistics about files, grouped by date
 [**statistics_by_file_extension**](StatisticsApi.md#statistics_by_file_extension) | **GET** /statistics/by_file_extension | Get statistics about files, grouped by file extension
 [**statistics_by_group_owner**](StatisticsApi.md#statistics_by_group_owner) | **GET** /statistics/by_group_owner | Get statistics about files, grouped by owner (group)
+[**statistics_by_metadata**](StatisticsApi.md#statistics_by_metadata) | **GET** /statistics/by_metadata | Get statistics about files, grouped by metadata
 [**statistics_by_primary_cloud**](StatisticsApi.md#statistics_by_primary_cloud) | **GET** /statistics/by_primary_cloud | Get statistics about files, grouped by primary Cloud
 [**statistics_by_primary_name**](StatisticsApi.md#statistics_by_primary_name) | **GET** /statistics/by_primary_name | Get statistics about files, grouped by primary storages
 [**statistics_by_primary_nas**](StatisticsApi.md#statistics_by_primary_nas) | **GET** /statistics/by_primary_nas | Get statistics about files, grouped by primary NAS
@@ -23,6 +24,7 @@ Method | HTTP request | Description
 [**statistics_by_size**](StatisticsApi.md#statistics_by_size) | **GET** /statistics/by_size | Get statistics about files, grouped by size
 [**statistics_by_user_owner**](StatisticsApi.md#statistics_by_user_owner) | **GET** /statistics/by_user_owner | Get statistics about files, grouped by owner (user)
 [**statistics_storage**](StatisticsApi.md#statistics_storage) | **GET** /statistics/storage | Get statistics about storages, grouped by types
+[**statistics_task_by_metadata**](StatisticsApi.md#statistics_task_by_metadata) | **GET** /statistics/task_by_metadata | Get statistics about tasks executions, grouped by metadata
 [**statistics_task_by_status**](StatisticsApi.md#statistics_task_by_status) | **GET** /statistics/task_by_status | Get statistics about tasks executions, grouped by status
 [**statistics_task_by_storage**](StatisticsApi.md#statistics_task_by_storage) | **GET** /statistics/task_by_storage | Get statistics about tasks executions, grouped by source and destination
 [**statistics_task_by_workflow**](StatisticsApi.md#statistics_task_by_workflow) | **GET** /statistics/task_by_workflow | Get statistics about tasks executions, grouped by workflow
@@ -201,6 +203,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ByGroupOwnerFacet**](ByGroupOwnerFacet.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **statistics_by_metadata**
+> ByMetadataFacet statistics_by_metadata(q => $q, fq => $fq, date_attr => $date_attr, sort => $sort, limit => $limit)
+
+Get statistics about files, grouped by metadata
+
+**API Key Scope**: statistics / by_metadata
+
+### Example 
+```perl
+use Data::Dumper;
+use Nodeum::SDK::StatisticsApi;
+my $api_instance = Nodeum::SDK::StatisticsApi->new(
+
+    # Configure HTTP basic authorization: BasicAuth
+    username => 'YOUR_USERNAME',
+    password => 'YOUR_PASSWORD',
+    
+    # Configure API key authorization: BearerAuth
+    api_key => {'Authorization' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'Authorization' => 'Bearer'},
+);
+
+my $q = "q_example"; # string | Solr query
+my $fq = [("null")]; # ARRAY[string] | Solr filter query  Multiple query can be separated by `|`.
+my $date_attr = "date_attr_example"; # string | Type of date to facet on
+my $sort = 'count'; # string | Sort results of facet
+my $limit = 10; # int | Limit results of facet
+
+eval { 
+    my $result = $api_instance->statistics_by_metadata(q => $q, fq => $fq, date_attr => $date_attr, sort => $sort, limit => $limit);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling StatisticsApi->statistics_by_metadata: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **q** | **string**| Solr query | [optional] 
+ **fq** | [**ARRAY[string]**](string.md)| Solr filter query  Multiple query can be separated by &#x60;|&#x60;. | [optional] 
+ **date_attr** | **string**| Type of date to facet on | [optional] 
+ **sort** | **string**| Sort results of facet | [optional] [default to &#39;count&#39;]
+ **limit** | **int**| Limit results of facet | [optional] [default to 10]
+
+### Return type
+
+[**ByMetadataFacet**](ByMetadataFacet.md)
 
 ### Authorization
 
@@ -884,6 +949,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StorageFacet**](StorageFacet.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **statistics_task_by_metadata**
+> ByTaskMetadataFacet statistics_task_by_metadata(q => $q, fq => $fq, sort => $sort, limit => $limit)
+
+Get statistics about tasks executions, grouped by metadata
+
+**API Key Scope**: statistics / task_by_metadata
+
+### Example 
+```perl
+use Data::Dumper;
+use Nodeum::SDK::StatisticsApi;
+my $api_instance = Nodeum::SDK::StatisticsApi->new(
+
+    # Configure HTTP basic authorization: BasicAuth
+    username => 'YOUR_USERNAME',
+    password => 'YOUR_PASSWORD',
+    
+    # Configure API key authorization: BearerAuth
+    api_key => {'Authorization' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'Authorization' => 'Bearer'},
+);
+
+my $q = "q_example"; # string | Solr query
+my $fq = [("null")]; # ARRAY[string] | Solr filter query  Multiple query can be separated by `|`.
+my $sort = 'count'; # string | Sort results of facet on task
+my $limit = 10; # int | Limit results of facet
+
+eval { 
+    my $result = $api_instance->statistics_task_by_metadata(q => $q, fq => $fq, sort => $sort, limit => $limit);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling StatisticsApi->statistics_task_by_metadata: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **q** | **string**| Solr query | [optional] 
+ **fq** | [**ARRAY[string]**](string.md)| Solr filter query  Multiple query can be separated by &#x60;|&#x60;. | [optional] 
+ **sort** | **string**| Sort results of facet on task | [optional] [default to &#39;count&#39;]
+ **limit** | **int**| Limit results of facet | [optional] [default to 10]
+
+### Return type
+
+[**ByTaskMetadataFacet**](ByTaskMetadataFacet.md)
 
 ### Authorization
 

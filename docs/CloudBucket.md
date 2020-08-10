@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **file_size_sum** | **int** |  | [optional] [readonly] 
 **location** | **string** |  | [optional] [readonly] 
 **price** | **string** |  | [optional] 
+**options** | **string** | S3FS mounting options, separated by comma | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

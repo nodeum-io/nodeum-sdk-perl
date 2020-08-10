@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**update_cloud_bucket**](CloudBucketsApi.md#update_cloud_bucket) | **PUT** /cloud_buckets/{cloud_bucket_id} | Updates a specific cloud bucket.
 [**update_cloud_bucket_by_cloud_connector**](CloudBucketsApi.md#update_cloud_bucket_by_cloud_connector) | **PUT** /cloud_connectors/{cloud_connector_id}/cloud_buckets/{cloud_bucket_id} | Updates a specific cloud bucket.
 [**update_cloud_bucket_by_pool**](CloudBucketsApi.md#update_cloud_bucket_by_pool) | **PUT** /pools/{pool_id}/cloud_buckets/{cloud_bucket_id} | Updates a specific cloud bucket.
+[**update_config_file_cloud_bucket**](CloudBucketsApi.md#update_config_file_cloud_bucket) | **PUT** /cloud_buckets/{cloud_bucket_id}/config_file | Updates a specific cloud bucket.
 
 
 # **index_cloud_buckets**
@@ -859,6 +860,63 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_config_file_cloud_bucket**
+> string update_config_file_cloud_bucket(cloud_bucket_id => $cloud_bucket_id, config_file => $config_file)
+
+Updates a specific cloud bucket.
+
+**API Key Scope**: cloud_buckets / update_config_file
+
+### Example 
+```perl
+use Data::Dumper;
+use Nodeum::SDK::CloudBucketsApi;
+my $api_instance = Nodeum::SDK::CloudBucketsApi->new(
+
+    # Configure HTTP basic authorization: BasicAuth
+    username => 'YOUR_USERNAME',
+    password => 'YOUR_PASSWORD',
+    
+    # Configure API key authorization: BearerAuth
+    api_key => {'Authorization' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'Authorization' => 'Bearer'},
+);
+
+my $cloud_bucket_id = "cloud_bucket_id_example"; # string | Numeric ID or name of cloud bucket.
+my $config_file = "/path/to/file"; # string | Config file to upload.
+
+eval { 
+    my $result = $api_instance->update_config_file_cloud_bucket(cloud_bucket_id => $cloud_bucket_id, config_file => $config_file);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling CloudBucketsApi->update_config_file_cloud_bucket: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cloud_bucket_id** | **string**| Numeric ID or name of cloud bucket. | 
+ **config_file** | **string****string**| Config file to upload. | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

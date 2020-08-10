@@ -8,7 +8,7 @@ use Nodeum::SDK::Object::StorageTapeFacets;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
+**count** | **int** |  | [optional] [readonly] 
 **tape_type_i** | [**ByTypeFacetBuckets**](ByTypeFacetBuckets.md) |  | [optional] 
 **tape_library_type_i** | [**ByTypeFacetBuckets**](ByTypeFacetBuckets.md) |  | [optional] 
 **pool_type_i** | [**ByTypeFacetBuckets**](ByTypeFacetBuckets.md) |  | [optional] 

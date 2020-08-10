@@ -1415,4 +1415,88 @@ sub update_cloud_bucket_by_pool {
     return $_response_object;
 }
 
+#
+# update_config_file_cloud_bucket
+#
+# Updates a specific cloud bucket.
+# 
+# @param string $cloud_bucket_id Numeric ID or name of cloud bucket. (required)
+# @param string $config_file Config file to upload. (required)
+{
+    my $params = {
+    'cloud_bucket_id' => {
+        data_type => 'string',
+        description => 'Numeric ID or name of cloud bucket.',
+        required => '1',
+    },
+    'config_file' => {
+        data_type => 'string',
+        description => 'Config file to upload.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'update_config_file_cloud_bucket' } = { 
+        summary => 'Updates a specific cloud bucket.',
+        params => $params,
+        returns => 'string',
+        };
+}
+# @return string
+#
+sub update_config_file_cloud_bucket {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'cloud_bucket_id' is set
+    unless (exists $args{'cloud_bucket_id'}) {
+      croak("Missing the required parameter 'cloud_bucket_id' when calling update_config_file_cloud_bucket");
+    }
+
+    # verify the required parameter 'config_file' is set
+    unless (exists $args{'config_file'}) {
+      croak("Missing the required parameter 'config_file' when calling update_config_file_cloud_bucket");
+    }
+
+    # parse inputs
+    my $_resource_path = '/cloud_buckets/{cloud_bucket_id}/config_file';
+
+    my $_method = 'PUT';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('multipart/form-data');
+
+    # path params
+    if ( exists $args{'cloud_bucket_id'}) {
+        my $_base_variable = "{" . "cloud_bucket_id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'cloud_bucket_id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # form params
+    if ( exists $args{'config_file'} ) {
+        $form_params->{'config_file'} = [] unless defined $form_params->{'config_file'};
+        push @{$form_params->{'config_file'}}, $args{'config_file'};
+            }
+    
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(BasicAuth BearerAuth )];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('string', $response);
+    return $_response_object;
+}
+
 1;

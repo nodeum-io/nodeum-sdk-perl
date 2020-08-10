@@ -217,6 +217,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'options' => {
+        datatype => 'string',
+        base_name => 'options',
+        description => 'S3FS mounting options, separated by comma',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -227,7 +234,8 @@ __PACKAGE__->openapi_types( {
     'provider' => 'string',
     'region' => 'string',
     'access_key' => 'string',
-    'secret_key' => 'string'
+    'secret_key' => 'string',
+    'options' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -238,7 +246,8 @@ __PACKAGE__->attribute_map( {
     'provider' => 'provider',
     'region' => 'region',
     'access_key' => 'access_key',
-    'secret_key' => 'secret_key'
+    'secret_key' => 'secret_key',
+    'options' => 'options'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});
