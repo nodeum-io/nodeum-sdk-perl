@@ -245,6 +245,27 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'in_cache' => {
+        datatype => 'int',
+        base_name => 'in_cache',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'offline' => {
+        datatype => 'int',
+        base_name => 'offline',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'extern' => {
+        datatype => 'int',
+        base_name => 'extern',
+        description => '',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -259,7 +280,10 @@ __PACKAGE__->openapi_types( {
     'modification_date' => 'string',
     'access_date' => 'string',
     'uid' => 'int',
-    'gid' => 'int'
+    'gid' => 'int',
+    'in_cache' => 'int',
+    'offline' => 'int',
+    'extern' => 'int'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -274,7 +298,10 @@ __PACKAGE__->attribute_map( {
     'modification_date' => 'modification_date',
     'access_date' => 'access_date',
     'uid' => 'uid',
-    'gid' => 'gid'
+    'gid' => 'gid',
+    'in_cache' => 'in_cache',
+    'offline' => 'offline',
+    'extern' => 'extern'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

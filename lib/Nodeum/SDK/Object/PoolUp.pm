@@ -205,6 +205,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'storage_id' => {
+        datatype => 'int',
+        base_name => 'storage_id',
+        description => 'For pool of tapes, used to link to a tape library id',
+        format => '',
+        read_only => '',
+            },
     'tape_ids' => {
         datatype => 'ARRAY[int]',
         base_name => 'tape_ids',
@@ -235,6 +242,7 @@ __PACKAGE__->openapi_types( {
     'type' => 'string',
     'content' => 'string',
     'primary_id' => 'int',
+    'storage_id' => 'int',
     'tape_ids' => 'ARRAY[int]',
     'nas_share_ids' => 'ARRAY[int]',
     'cloud_bucket_ids' => 'ARRAY[int]'
@@ -247,6 +255,7 @@ __PACKAGE__->attribute_map( {
     'type' => 'type',
     'content' => 'content',
     'primary_id' => 'primary_id',
+    'storage_id' => 'storage_id',
     'tape_ids' => 'tape_ids',
     'nas_share_ids' => 'nas_share_ids',
     'cloud_bucket_ids' => 'cloud_bucket_ids'

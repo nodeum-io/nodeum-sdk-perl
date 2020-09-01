@@ -20,6 +20,9 @@ Name | Type | Description | Notes
 **access_date** | **string** |  | [optional] [readonly] 
 **uid** | **int** |  | [optional] [readonly] 
 **gid** | **int** |  | [optional] [readonly] 
+**in_cache** | **int** |  | [optional] [readonly] 
+**offline** | **int** |  | [optional] [readonly] 
+**extern** | **int** |  | [optional] [readonly] 
 **file_path** | **string** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

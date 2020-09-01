@@ -49,6 +49,69 @@ sub new {
 
 
 #
+# destroy_tape
+#
+# Destroys a specific tape. Only when it's an orphan.
+# 
+# @param string $tape_id Numeric ID, or barcode of tape. (required)
+{
+    my $params = {
+    'tape_id' => {
+        data_type => 'string',
+        description => 'Numeric ID, or barcode of tape.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'destroy_tape' } = { 
+        summary => 'Destroys a specific tape. Only when it&#39;s an orphan.',
+        params => $params,
+        returns => undef,
+        };
+}
+# @return void
+#
+sub destroy_tape {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'tape_id' is set
+    unless (exists $args{'tape_id'}) {
+      croak("Missing the required parameter 'tape_id' when calling destroy_tape");
+    }
+
+    # parse inputs
+    my $_resource_path = '/tapes/{tape_id}';
+
+    my $_method = 'DELETE';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept();
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # path params
+    if ( exists $args{'tape_id'}) {
+        my $_base_variable = "{" . "tape_id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'tape_id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw(BasicAuth BearerAuth )];
+
+    # make the API Call
+    $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    return;
+}
+
+#
 # index_tape_stats
 #
 # List all tape statistics.

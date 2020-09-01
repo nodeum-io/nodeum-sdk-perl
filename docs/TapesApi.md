@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**destroy_tape**](TapesApi.md#destroy_tape) | **DELETE** /tapes/{tape_id} | Destroys a specific tape. Only when it&#39;s an orphan.
 [**index_tape_stats**](TapesApi.md#index_tape_stats) | **GET** /tape_stats | List all tape statistics.
 [**index_tapes**](TapesApi.md#index_tapes) | **GET** /tapes | Lists all tapes.
 [**index_tapes_by_pool**](TapesApi.md#index_tapes_by_pool) | **GET** /pools/{pool_id}/tapes | Lists all tapes.
@@ -23,6 +24,60 @@ Method | HTTP request | Description
 [**show_tape_stat_by_pool**](TapesApi.md#show_tape_stat_by_pool) | **GET** /pools/{pool_id}/tapes/{tape_id}/tape_stat | Display statistic for a specific tape.
 [**show_tape_stat_by_tape_library**](TapesApi.md#show_tape_stat_by_tape_library) | **GET** /tape_libraries/{tape_library_id}/tapes/{tape_id}/tape_stat | Display statistic for a specific tape.
 
+
+# **destroy_tape**
+> destroy_tape(tape_id => $tape_id)
+
+Destroys a specific tape. Only when it's an orphan.
+
+**API Key Scope**: tapes / destroy
+
+### Example 
+```perl
+use Data::Dumper;
+use Nodeum::SDK::TapesApi;
+my $api_instance = Nodeum::SDK::TapesApi->new(
+
+    # Configure HTTP basic authorization: BasicAuth
+    username => 'YOUR_USERNAME',
+    password => 'YOUR_PASSWORD',
+    
+    # Configure API key authorization: BearerAuth
+    api_key => {'Authorization' => 'YOUR_API_KEY'},
+    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+    #api_key_prefix => {'Authorization' => 'Bearer'},
+);
+
+my $tape_id = "tape_id_example"; # string | Numeric ID, or barcode of tape.
+
+eval { 
+    $api_instance->destroy_tape(tape_id => $tape_id);
+};
+if ($@) {
+    warn "Exception when calling TapesApi->destroy_tape: $@\n";
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tape_id** | **string**| Numeric ID, or barcode of tape. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **index_tape_stats**
 > TapeStatCollection index_tape_stats(limit => $limit, offset => $offset)

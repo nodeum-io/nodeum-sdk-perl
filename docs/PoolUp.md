@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **type** | **string** |  | [optional] 
 **content** | **string** |  | [optional] 
 **primary_id** | **int** |  | [optional] [readonly] 
+**storage_id** | **int** | For pool of tapes, used to link to a tape library id | [optional] 
 **tape_ids** | **ARRAY[int]** |  | [optional] 
 **nas_share_ids** | **ARRAY[int]** |  | [optional] 
 **cloud_bucket_ids** | **ARRAY[int]** |  | [optional] 

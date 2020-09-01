@@ -203,6 +203,13 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'storage_id' => {
+        datatype => 'int',
+        base_name => 'storage_id',
+        description => 'For pool of tapes, used to link to a tape library id',
+        format => '',
+        read_only => '',
+            },
 });
 
 __PACKAGE__->openapi_types( {
@@ -211,7 +218,8 @@ __PACKAGE__->openapi_types( {
     'comment' => 'string',
     'type' => 'string',
     'content' => 'string',
-    'primary_id' => 'int'
+    'primary_id' => 'int',
+    'storage_id' => 'int'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -220,7 +228,8 @@ __PACKAGE__->attribute_map( {
     'comment' => 'comment',
     'type' => 'type',
     'content' => 'content',
-    'primary_id' => 'primary_id'
+    'primary_id' => 'primary_id',
+    'storage_id' => 'storage_id'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

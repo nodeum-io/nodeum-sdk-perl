@@ -247,6 +247,27 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
+    'in_cache' => {
+        datatype => 'int',
+        base_name => 'in_cache',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'offline' => {
+        datatype => 'int',
+        base_name => 'offline',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'extern' => {
+        datatype => 'int',
+        base_name => 'extern',
+        description => '',
+        format => '',
+        read_only => '',
+            },
     'file_path' => {
         datatype => 'string',
         base_name => 'file_path',
@@ -269,6 +290,9 @@ __PACKAGE__->openapi_types( {
     'access_date' => 'string',
     'uid' => 'int',
     'gid' => 'int',
+    'in_cache' => 'int',
+    'offline' => 'int',
+    'extern' => 'int',
     'file_path' => 'string'
 } );
 
@@ -285,6 +309,9 @@ __PACKAGE__->attribute_map( {
     'access_date' => 'access_date',
     'uid' => 'uid',
     'gid' => 'gid',
+    'in_cache' => 'in_cache',
+    'offline' => 'offline',
+    'extern' => 'extern',
     'file_path' => 'file_path'
 } );
 
